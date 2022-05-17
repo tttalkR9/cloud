@@ -1,0 +1,27 @@
+server:
+  # 该服务的端口号
+  port: 8900
+eureka:
+  client:
+    service-url:
+      #此服务注册的地址,需要跟eureka模块中地址一致,注意这里用server.port是8900不是8899不要用变量
+      #defaultZone:  http://${eureka.instance.hostname}:8899/eureka
+      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@localhost:8899/eureka
+  instance:
+    hostname: localhost
+
+
+
+spring:
+  application:
+    #注册到注册中心的名称,注意不能使用“_”
+    name: eureka-client-8900
+  # 指定用户名和密码,其他服务想注册到Eureka上需要添加用户名和密码进行认证
+  security:
+    user:
+      name: admin
+      password: admin
+  cloud:
+    inetutils:
+      timeout-seconds: 10
+

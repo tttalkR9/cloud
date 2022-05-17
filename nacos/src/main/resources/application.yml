@@ -1,0 +1,9 @@
+server:
+  port: 8070
+spring:
+  application:
+    name: nacos-provider
+  cloud:
+    # nacos服务地址
+    nacos:
+      server-addr: 127.0.0.1:8848
